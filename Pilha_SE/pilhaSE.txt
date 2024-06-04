@@ -1,0 +1,22 @@
+#include <stdlib.h>
+#include "PilhaSE.h"
+
+void criaPilha(Pilha *pl){
+	pl->topo = NULL;
+}
+
+
+int empilha(Pilha *pl , Dado dado){
+	Nodo *ptr = (Nodo *)malloc(sizeof(Nodo));
+	
+	if(ptr == NULL){
+		return (FALTOU_MEMORIA);
+	}else{
+		ptr->info.cod = dado.cod;
+		ptr->info.peso = dado.peso;
+		ptr->prox = pl->topo;
+		pl->topo = ptr;	
+		
+		return (SUCESSO);
+	}	
+}

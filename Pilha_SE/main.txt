@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "PilhaSE.h"
+
+int main() {
+    Dado dado;
+    Pilha pl;
+    int escolha;
+
+    criaPilha(&pl);
+
+    do {
+        printf("\nMENU:\n");
+        printf("1. EMPILHA\n");
+        printf("2. DESEMPILHA\n");
+        printf("3. VERIFICAR SE ESTA VAZIA\n");
+        printf("4. CONSULTAR O TOPO\n");
+        printf("5. EXIBIR\n");
+        printf("0. SAIR\n");
+
+        printf("\nEscolha uma Opcao: ");
+        scanf("%d", &escolha);
+
+        switch (escolha) {
+            case 1:
+                printf("Opcao escolhida: EMPILHA\n");
+
+                printf("Insira o codigo: ");
+                scanf("%d", &dado.cod);
+
+                printf("Insira o peso: ");
+                scanf("%f", &dado.peso);
+
+                if (empilha(&pl, dado) == FALTOU_MEMORIA) {
+                    printf("FALTOU\n");
+                } else {
+                    printf("OK");
+                }
+
+                break;
+
+            case 2:
+                printf("Opcao escolhida: DESEMPILHA\n");
+                // Coloque o código para desempilhar aqui
+                break;
+
+            case 3:
+                printf("Opcao escolhida: VERIFICAR SE ESTA VAZIA\n");
+                // Coloque o código para verificar se a pilha está vazia aqui
+                break;
+
+            case 4:
+                printf("Opcao escolhida: CONSULTAR O TOPO\n");
+                // Coloque o código para consultar o topo aqui
+                break;
+
+            case 5:
+                printf("cod:%d peso:%3.f\n", dado.cod, dado.peso);
+                
+                break;
+
+            case 0:
+                printf("SAINDO...\n");
+                break;
+
+            default:
+                printf("Opcao inválida. Tente novamente.\n");
+                break;
+        }
+
+    } while (escolha != 0);
+
+    return 0;
+}
